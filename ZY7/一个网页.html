@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个普普通通的网页</title>
+</head>
+
+<body>
+    <div>
+        <h2>作业的第三题</h2>
+        <label for="one">输入数字a：</label>
+        <input id="one" type="text">
+    </div>
+    <div>
+        <label for="two">输入数字b：</label>
+        <input id="two" type="text">
+    </div>
+    <div>
+        <input id="submit" type="submit">
+    </div>
+    <p></p>
+    <script>
+        //练习题2
+        document.write('<h2>练习题2中的1</h2>');
+        let a1 = 9;
+        let b1 = 2;
+        if (a1 < b1) {
+            document.write(`a的值是${a1},b的值是${b1},a小于b`);
+        } else if (a1 > b1) {
+            document.write(`a的值是${a1},b的值是${b1},a大于b`);
+        } else {
+            document.write(`a的值是${a1},b的值是${b1},a等于b`);
+        }
+        //document.write('&nbsp;');
+        document.write('<br>')
+        document.write('<hr>');
+
+
+        document.write('<h2>练习题2中的2</h2>');
+        let a2 = 40;
+        if (a2 % 5 === 0) {
+            document.write(`可以被5整除,${a2 / 5}`);
+        } else {
+            document.write(`不可以被5整除`);
+        }
+        document.write('<hr>');
+
+
+        document.write('<h2>练习题2中的3</h2>');
+        for (let i = 0; i <= 100; i++) {
+            if (i % 2 === 0) {
+                document.write(`${i}  `);
+            }
+        }
+        document.write('<hr>');
+
+
+        document.write('<h2>练习题2中的4</h2>');
+        let i = 1;
+        while (i <= 100) {
+            if (i % 7 === 0) {
+                document.write(i + '  ');
+            }
+            i++;
+        }
+        document.write('<hr>');
+
+
+        document.write('<h2>练习题2中的5</h2>');
+        let a5 = 20;
+        let b5 = 4;
+        let c5 = 17;
+        if (a5 > b5) {
+            if (a5 > c5) {
+                document.write("最大值为" + a5);
+            } else {
+                document.write("最大值为" + c5);
+            }
+        } else {
+            if (b5 > c5) {
+                document.write("最大值为" + b5);
+            } else {
+                document.write("最大值为" + c5);
+            }
+        }
+        document.write('<hr>');
+
+
+
+        //练习题3
+        document.write('<h2>练习题3中的1</h2>');
+        let oushu = '';
+        let jishu = '';
+        for (let i = 0; i <= 100; i++) {
+            if (i % 2 === 0) {
+                oushu = oushu + i + ' ';
+            } else {
+                jishu = jishu + i + ' ';
+            }
+        }
+        document.write("100以内的偶数是:" + oushu);
+        document.write('<br>')
+        document.write("100以内的奇数是:" + jishu);
+        document.write('<hr>');
+
+
+        document.write('<h2>练习题3中的2</h2>');
+        let y = 0;
+        let z = '';
+        let test = (...q) => {
+            for (let i = q.length - 1; i >= 0; i--) {
+                if (i === 0) {
+                    z = z + q[i];
+                } else {
+                    z = z + q[i] + '+';
+                }
+                y += q[i];
+            }
+            return z + '=' + y;
+        }
+        document.write(test(2, 6, 8, 10));
+        document.write('<hr>');
+
+
+        //第三题
+        const a = document.querySelector('#one');
+        const b = document.querySelector('#two');
+        const para = document.querySelector('p');
+        const submit = document.querySelector('#submit');
+        submit.onclick = function (v) {
+            if (a.value === '' || b.value === '') {
+                v.preventDefault();
+                //阻止表单提交
+                para.textContent = '输入a和b的值';
+            } else {
+                if (isNaN(a.value) || isNaN(b.value)) {
+                    v.preventDefault();
+                    para.textContent = '输入数值型a和b';
+                } else {
+                    let aa = Number(a.value);
+                    let bb = Number(b.value);
+                    if (aa > bb) {
+                        para.textContent = `a的值为${aa},b的值为${bb},a大于b`;
+                    } else if (aa < bb) {
+                        para.textContent = `a的值为${aa},b的值为${bb},a小于b`;
+                    } else {
+                        para.textContent = `a的值为${aa},b的值为${bb},a等于b`;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
