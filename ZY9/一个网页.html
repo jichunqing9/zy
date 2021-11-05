@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个普普通通的网页</title>
+    <style>
+        /* 第一题 */
+        .dyt {
+            width: 150px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+
+        /* 第二题 */
+        table,
+        td {
+            border: 2px solid white;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 6px 11px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #zyzy {
+            background-color: #55ec82;
+        }
+
+        #zyzyzy {
+            background-color: #1d87a7;
+            width: 400px;
+            text-align: left;
+            padding: 2px;
+        }
+
+        #sub {
+            background-color: #ec2d13;
+        }
+
+        caption {
+            margin-bottom: 1px;
+            font-size: 33px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>第一题</h2>
+    <input type="checkbox" id="y">全选/全不选
+    <input type="button" id="ee" value="反选">
+    <div class="dyt">
+        <input type="checkbox" name="sss">复选框说明信息
+        <input type="checkbox" name="sss">复选框说明信息
+        <input type="checkbox" name="sss">复选框说明信息
+        <input type="checkbox" name="sss">复选框说明信息
+        <input type="checkbox" name="sss">复选框说明信息
+    </div>
+    <hr>
+
+
+    <h2>第二题的一</h2>
+    <form action="ygwy.html" method="get" id="f">
+        姓名：<input type="text" id="a"><br>
+        密码：<input type="password" value="" id="b"><br>
+        性别：
+        <input type="radio" name="c" id="c1">男
+        <input type="radio" name="c" id="c2" checked="checked">女<br>
+        <label>年龄：</label>
+        <select name="select1">
+            <option value="1" selected="selected">20</option>
+            <option value="2">21</option>
+            <option value="3">22</option><br>
+        </select>
+        <br>
+        <label>爱好：</label>
+        <input type="checkbox" name="checkbox1" value="c1" id="hobby1" checked="checked">读书
+        <input type="checkbox" name="checkbox2" value="c2" id="hobby2">音乐
+        <input type="checkbox" name="checkbox3" value="c3" id="hobby3">上网<br>
+        <br><label>简介：</label>
+        <textarea name="textarea1" cols="30" rows="9" id="resume"></textarea><br>
+        <input id="submit" type="submit" value="提交">
+        <input type="reset" value="重置"><br>
+    </form>
+    <p id="p1"></p>
+    <hr>
+
+    <h2>第二题的二</h2>
+    <form action="ygwy.html" method="get" id="form2">
+        <table>
+            <caption>Information Form</caption>
+            <tr>
+                <td id="zyzy">
+                    <label>name</label>
+                </td>
+                <td id="zyzyzy">
+                    <input type="text" name="name2" id="name2"><br>
+                </td>
+            </tr>
+            <tr>
+                <td id="zyzy">
+                    <label>pwd</label>
+                </td>
+                <td id="zyzyzy">
+                    <input type="password" name="pwd2" id="pwd2">
+                </td>
+            </tr>
+            <tr>
+                <td id="zyzy">
+                    <label>sex</label>
+                </td>
+                <td id="zyzyzy">
+                    <input type="radio" name="rodio2" id="radio21" checked="checked">male
+                    <input type="radio" name="rodio2" id="radio22">female
+                </td>
+            </tr>
+            <tr>
+                <td id="zyzy">
+                    <label>age</label>
+                </td>
+                <td id="zyzyzy">
+                    <select name="select2">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td id="zyzy">
+                    <label>course</label>
+                </td>
+                <td id="zyzyzy">
+                    <input type="checkbox" name="checkbox2" value="c1" id="lg1">Chinese
+                    <input type="checkbox" name="checkbox2" value="c2" id="lg2">Math
+                    <input type="checkbox" name="checkbox2" value="c3" id="lg3">English
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" id="sub">
+                    <input id="submit2" type="submit" value="Submit it!">
+                    <input type="reset" value="Reset it!">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+
+    <!-- javaScript -->
+    <script>
+        //第一题
+        let tt = document.querySelector('#y');
+        let yy = document.querySelector('#ee');
+        let oo = document.getElementsByName('sss');
+        tt.onclick = function () {
+            if (tt.checked === true) {
+                for (let i = 0; i < oo.length; i++) {
+                    oo[i].checked = true;
+                }
+            }
+            if (tt.checked === false) {
+
+                for (let i = 0; i < oo.length; i++) {
+                    oo[i].checked = false;
+                }
+            }
+        },
+            yy.onclick = function () {
+                for (let i = 0; i < oo.length; i++) {
+                    oo[i].checked = !oo[i].checked
+                }
+            }
+
+
+
+        //第二题的一
+        {
+            const f = document.querySelector('#f');
+            let name = document.querySelector('#a');
+            let pw = document.querySelector('#b');
+            let man = document.querySelector('#c1');
+            let woman = document.querySelector('#c2');
+            let hobby1 = document.querySelector('#hobby1');
+            let hobby2 = document.querySelector('#hobby2');
+            let hobby3 = document.querySelector('#hobby3');
+            let resume = document.querySelector('#resume');
+            f.onsubmit = function (r) {
+                let pw1 = pw.value.length;
+                let resumelen = resume.value.length;
+                if (name.value === '') {
+                    r.preventDefault();
+                    alert("姓名不能为空")
+                } else if (pw1 < 2 || pw1 > 10) {
+                    r.preventDefault();
+                    alert("密码长度2-10位")
+                } else if (man.checked == false && woman.checked == false) {
+                    r.preventDefault();
+                    alert("性别必须选择一项")
+                } else if (like1.checked == false && like2.checked == false && like3.checked == false) {
+                    r.preventDefault();
+                    alert("爱好必须选择一项")
+                } else if (resumelen < 10) {
+                    r.preventDefault();
+                    alert("简介至少10个字符")
+                }
+            }
+        }
+
+
+        //第二题的二
+        {
+            let p2 = document.querySelector('#p2');
+            const form2 = document.querySelector('#form2');
+            let name2 = document.querySelector('#name2');
+            let pwd2 = document.querySelector('#pwd2');
+            let radio21 = document.querySelector('#radio21');
+            let radio22 = document.querySelector('#radio22');
+            let lg1 = document.querySelector('#lg1');
+            let lg2 = document.querySelector('#lg2');
+            let lg3 = document.querySelector('#lg3');
+            let check = document.getElementsByName('checkbox2');
+
+            form2.onsubmit = function (o) {
+                let pwd2len = pwd2.value.length;
+                let num = 0;
+                for (let i = 0; i < check.length; i++) {
+                    if (check[i].checked === true) {
+                        num++;
+                    }
+                }
+                if (name2.value === '') {
+                    o.preventDefault();
+                    alert('姓名不能为空');
+                } else if (pwd2len < 2 || pwd2len > 10) {
+                    o.preventDefault();
+                    alert('密码长度2-10位');
+                } else if (radio21.checked == false && radio22.checked == false) {
+                    o.preventDefault();
+                    alert('性别必须选择一项');
+                } else if (num < 2) {
+                    o.preventDefault();
+                    alert('课程至少选择两项');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
